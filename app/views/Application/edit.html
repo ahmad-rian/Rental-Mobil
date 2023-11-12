@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental Mobil Form</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 8px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      input[type="checkbox"] {
+        margin-top: 8px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Adjusted styles for the Back button */
+      .back-button {
+        display: block;
+        background-color: #ccc;
+        color: #333;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #aaa;
+      }
+
+      /* Adjusted styles for the Next button */
+      .next-button {
+        display: block;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      .next-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>CAR RENTAL FORM</h2>
+      <form
+        name="clien"
+        action="@{Application.Simpan()}"
+        name="clien"
+        method="post">
+        <label for="nama">Nama :</label>
+        <input
+          type="text"
+          name="clien.nama"
+          value="${carRental.nama}"
+          required />
+
+        <label for="nohp">No Handphone :</label>
+        <input
+          type="text"
+          name="clien.nohp"
+          value="${carRental.nohp}"
+          required />
+
+        <label for="tgl">Tanggal Peminjaman</label>
+        <input type="date" name="clien.tgl" value="${carRental.tgl}" required />
+
+        <label for="carModel">Car Model:</label>
+        <select name="clien.model" value="${carRental.model}" required>
+          <option value="">--</option>
+          <option value="Pajero Sport">Pajero Sport</option>
+          <option value="Toyota Alphard">Toyota Alphard</option>
+          <option value="Bugatti Chiron">Bugatti Chiron</option>
+          <option value="BMW X1">BMW X1</option>
+          <option value="Honda Jazz">Honda Jazz</option>
+          <option value="Ferrari">Ferrari</option>
+          <option value="Bugatti Chiron">Fortuner</option>
+          <option value="BMW X1">Avanza</option>
+        </select>
+
+        <label for="rentalDuration">Rental Duration (in days):</label>
+        <input
+          type="number"
+          name="clien.durasi"
+          value="${carRental.durasi}"
+          required />
+
+        <label for="pickupLocation">Pickup Location:</label>
+        <textarea
+          name="clien.lokasi"
+          value="${carRental.lokasi}"
+          rows="4"
+          required></textarea>
+
+        <input type="hidden" name="clien.id" value="${carRental.id}" />
+
+        <!-- Adjusted margin-top for better separation from the textarea -->
+        <input type="submit" value="Submit" style="margin-top: 12px" />
+      </form>
+    </div>
+  </body>
+</html>

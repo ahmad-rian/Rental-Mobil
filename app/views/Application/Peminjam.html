@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+      }
+
+      section {
+        margin: 20px;
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>${title}</h1>
+    </header>
+
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>No Handphone</th>
+            <th>Tanggal Peminjaman</th>
+            <th>Car Model</th>
+            <th>Rental Duration</th>
+            <th>Pickup Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          #{list items:carRentals, as:'clien'}
+          <tr>
+            <td>${clien.nama}</td>
+            <td>${clien.nohp}</td>
+            <td>${clien.tgl}</td>
+            <td>${clien.model}</td>
+            <td>${clien.durasi}</td>
+            <td>${clien.lokasi}</td>
+          </tr>
+          #{/list}
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Rental Mobil CEBERUS. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

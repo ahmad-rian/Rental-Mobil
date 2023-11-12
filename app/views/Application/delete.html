@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Peminjam</title>
+    <style>
+      /* Add your specific styles for the delete page */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+      }
+
+      section {
+        margin: 20px;
+        text-align: center;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: inline-block;
+      }
+
+      input[type="submit"] {
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #c9302c;
+      }
+
+      a {
+        display: inline-block;
+        margin-left: 10px;
+        background-color: #428bca;
+        color: #fff;
+        padding: 10px;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background-color: #3071a9;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>Delete Peminjam</h2>
+    </header>
+
+    <section>
+      <p>Are you sure you want to delete the record for ${clien?.nama}?</p>
+      <form action="@{Application.destroy(clien?.id)}" method="post">
+        <input type="submit" value="Delete" />
+      </form>
+      <a href="@{Application.index()}">Cancel</a>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Rental Mobil CEBERUS. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

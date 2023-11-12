@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental Mobil Form</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* Added for positioning the Back button */
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 16px; /* Added padding for spacing */
+      }
+
+      label {
+        margin-bottom: 8px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      input[type="checkbox"] {
+        margin-top: 8px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Added styles for the Back button */
+      .back-button {
+        display: block;
+        background-color: #ccc;
+        color: #333;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #aaa;
+      }
+
+      /* Styles for the Next button */
+      .next-button {
+        display: block;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px; /* Positioned to the right */
+        cursor: pointer;
+      }
+
+      .next-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>CAR RENTAL FORM</h2>
+      <form action="@{Application.Simpan()}" name="clien" method="post">
+        <label for="nama">Nama :</label>
+        <input type="text" name="clien.nama" required />
+
+        <label for="nohp">No Handphone :</label>
+        <input type="text" name="clien.nohp" required />
+
+        <label for="tgl">Tanggal Peminjaman</label>
+        <input type="date" name="clien.tgl" required />
+
+        <label for="carModel">Car Model:</label>
+        <select name="clien.model" required>
+          <option value="">--</option>
+          <option value="Pajero Sport">Pajero Sport</option>
+          <option value="Toyota Alphard">Toyota Alphard</option>
+          <option value="Bugatti Chiron">Bugatti Chiron</option>
+          <option value="BMW X1">BMW X1</option>
+          <option value="Honda Jazz">Honda Jazz</option>
+          <option value="Ferrari">Ferrari</option>
+          <option value="Bugatti Chiron">Fortuner</option>
+          <option value="BMW X1">Avanza</option>
+        </select>
+
+        <label for="rentalDuration">Rental Duration (in days):</label>
+        <input type="number" name="clien.durasi" required />
+
+        <label for="pickupLocation">Pickup Location:</label>
+        <textarea name="clien.lokasi" rows="4" required></textarea>
+
+        <input type="hidden" name="clien.id" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <!-- Back Button -->
+    <a href="@{Application.index()}" class="back-button">Back</a>
+
+    <!-- Next Button -->
+    <a href="@{Application.showCarRentals()}" class="next-button">Next</a>
+  </body>
+</html>
